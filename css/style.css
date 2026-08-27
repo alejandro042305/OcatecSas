@@ -1,9 +1,10 @@
 /* ==========================================================================
    OCATEC SERVIPLUS — Design System
    Clean and modern: blue + green brand palette, Inter throughout.
+   Fonts are loaded via <link rel="preconnect"/stylesheet"> in each page's
+   <head> (not @import here) so the browser can fetch them in parallel
+   with this stylesheet instead of discovering them after it.
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Color */
@@ -132,6 +133,19 @@ input, textarea, select { font: inherit; color: inherit; }
 .section { padding: 6rem 0; }
 .section-alt { background: var(--bg-alt); }
 main > section + section { border-top: 1px solid var(--line); }
+
+/* Colored section washes — alternate blue/green down the page for more visible brand color */
+.section-tint-green {
+  background:
+    linear-gradient(180deg, rgba(31, 182, 89, 0.12) 0%, rgba(31, 182, 89, 0.03) 45%, transparent 100%),
+    var(--bg);
+}
+
+.section-tint-blue {
+  background:
+    linear-gradient(180deg, rgba(26, 86, 219, 0.1) 0%, rgba(26, 86, 219, 0.03) 45%, transparent 100%),
+    var(--bg);
+}
 
 @media (max-width: 768px) {
   .section { padding: 4rem 0; }

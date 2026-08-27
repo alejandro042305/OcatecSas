@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alejandro042305.github.io/OcatecSas/sitemap.xml
