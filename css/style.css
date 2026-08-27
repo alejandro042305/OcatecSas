@@ -137,6 +137,14 @@ main > section + section { border-top: 1px solid var(--line); }
   .section { padding: 4rem 0; }
 }
 
+@media (max-width: 640px) {
+  .container { padding: 0 1.15rem; }
+  .section { padding: 3rem 0; }
+  .section-head { margin-bottom: 2rem; }
+  .hero { padding: 2.5rem 0 3rem; }
+  .page-hero { padding: 2.5rem 0 2rem; }
+}
+
 .section-head { max-width: 640px; margin: 0 0 3rem; }
 .section-head.center { margin-inline: auto; text-align: center; }
 
@@ -355,7 +363,7 @@ h3 { font-size: 1.3rem; }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
 
 .hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
-.hero-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1rem; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-soft); font-size: 0.82rem; font-weight: 600; }
+.hero-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1rem; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-soft); font-size: 0.82rem; font-weight: 600; }
 .hero-badge .icon { width: 1rem; height: 1rem; color: var(--petrol-600); }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2.4rem; }
@@ -676,26 +684,19 @@ h3 { font-size: 1.3rem; }
   .marquee-track { animation: none; }
 }
 
-.marquee-disclaimer {
+.footer-disclaimer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  max-width: 46rem;
-  margin: 1.75rem auto 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-  text-align: center;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.78rem;
   line-height: 1.5;
-  color: var(--ink-faint);
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.marquee-disclaimer svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; color: var(--ink-faint); opacity: 0.8; }
-
-@media (max-width: 640px) {
-  .marquee-disclaimer { flex-direction: column; gap: 0.4rem; }
-}
+.footer-disclaimer svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; opacity: 0.8; }
 
 /* ==========================================================================
    Service card badge + bullets
@@ -838,12 +839,59 @@ h3 { font-size: 1.3rem; }
 .fab-call { background: var(--petrol-600); }
 .fab-top { background: var(--ink); }
 
+@media (max-width: 900px) {
+  .fab-stack { bottom: calc(4.75rem + env(safe-area-inset-bottom)); }
+}
+
 @media (max-width: 640px) {
-  .fab-stack { bottom: 1.1rem; right: 1.1rem; gap: 0.6rem; opacity: 0; pointer-events: none; transition: opacity 220ms var(--ease-out); }
+  .fab-stack { right: 1.1rem; gap: 0.6rem; opacity: 0; pointer-events: none; transition: opacity 220ms var(--ease-out); }
   .fab-stack.is-visible { opacity: 1; pointer-events: auto; }
   .fab { width: 2.75rem; height: 2.75rem; }
   .fab .icon { width: 1.2rem; height: 1.2rem; }
   .fab-call, .fab-top { display: none; }
+}
+
+/* ==========================================================================
+   Mobile bottom tab bar
+   ========================================================================== */
+
+.bottom-tab-bar { display: none; }
+
+@media (max-width: 900px) {
+  body { padding-bottom: calc(4.35rem + env(safe-area-inset-bottom)); }
+
+  .bottom-tab-bar {
+    display: flex;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 95;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 0.35rem 0.25rem calc(0.35rem + env(safe-area-inset-bottom));
+    box-shadow: 0 -10px 24px -14px rgba(11, 18, 32, 0.18);
+  }
+
+  .bottom-tab-bar a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.3rem 0.15rem;
+    border-radius: var(--r-md);
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: color 160ms var(--ease-out), background 160ms var(--ease-out);
+  }
+
+  .bottom-tab-bar a .icon { width: 1.3rem; height: 1.3rem; }
+  .bottom-tab-bar a:active { background: var(--bg-alt); }
+  .bottom-tab-bar a.active { color: var(--petrol-600); }
 }
 
 /* ==========================================================================
@@ -1023,6 +1071,39 @@ h3 { font-size: 1.3rem; }
 }
 
 .compare-dot.is-active { background: var(--petrol-600); transform: scale(1.35); }
+
+/* Mobile-only: the "antes y después" panel becomes a full-bleed background
+   banner with the heading/copy overlaid on top, instead of a side-by-side grid. */
+@media (max-width: 640px) {
+  .compare-banner {
+    display: block;
+    position: relative;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    background: var(--grad-dark);
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .compare-banner-content { position: relative; z-index: 1; max-width: none; }
+  .compare-banner-content h2 { color: #fff; }
+  .compare-banner-content .lede { color: rgba(255, 255, 255, 0.78); }
+
+  .compare-banner-media { position: relative; margin-top: 1.5rem; }
+  .compare-banner-media::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem; right: -1.5rem; top: -1.75rem; height: 2.5rem;
+    z-index: 2;
+    background: linear-gradient(180deg, #0a1730 0%, rgba(10, 23, 48, 0) 100%);
+    pointer-events: none;
+  }
+
+  .compare-banner-media .compare-carousel { position: relative; z-index: 1; max-width: none; width: 100%; }
+  .compare-banner-media .compare-nav .compare-arrow { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); color: #fff; }
+  .compare-banner-media .compare-nav .compare-arrow:hover { background: rgba(255, 255, 255, 0.22); }
+  .compare-banner-media .compare-dot { background: rgba(255, 255, 255, 0.35); }
+  .compare-banner-media .compare-dot.is-active { background: #fff; }
+}
 
 /* ==========================================================================
    Technical diagram panel
