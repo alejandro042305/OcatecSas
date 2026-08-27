@@ -1,9 +1,9 @@
 /* ==========================================================================
    OCATEC SERVIPLUS — Design System
-   Warm editorial-technical: cream paper, rust + petrol, Fraunces display.
+   Clean and modern: blue + green brand palette, Inter throughout.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Color */
@@ -38,8 +38,8 @@
   --grad-dark: linear-gradient(160deg, #081335, #1447b8);
 
   /* Typography */
-  --font-head: 'Fraunces', 'Public Sans', serif;
-  --font-body: 'Public Sans', sans-serif;
+  --font-head: 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
   /* Radii — crisp editorial corners, never full pill on large containers */
@@ -167,9 +167,9 @@ main > section + section { border-top: 1px solid var(--line); }
 }
 
 .glow-field::after {
-  width: 24rem; height: 24rem; bottom: -8rem; left: -6rem;
+  width: 26rem; height: 26rem; bottom: -8rem; left: -6rem;
   background: radial-gradient(circle, var(--rust-400), transparent 70%);
-  opacity: 0.25;
+  opacity: 0.4;
 }
 
 .glow-field > * { position: relative; z-index: 1; }
@@ -275,7 +275,7 @@ h3 { font-size: 1.3rem; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.9rem 1.75rem;
+  padding: 1.2rem 2rem;
   border-radius: 0;
   background: transparent;
   border: 0;
@@ -287,17 +287,17 @@ h3 { font-size: 1.3rem; }
 
 .nav-links { justify-self: center; }
 
-.nav-logo { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-head); font-weight: 600; font-size: 1.08rem; letter-spacing: -0.01em; }
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; letter-spacing: -0.01em; }
 
 .nav-logo-mark {
-  width: 2.3rem; height: 2.3rem;
+  width: 2.9rem; height: 2.9rem;
   flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
 
 .nav-logo-mark svg { width: 100%; height: 100%; }
 
-.nav-logo span.sub { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 0.58rem; color: var(--ink-soft); letter-spacing: 0.04em; margin-top: -1px; text-transform: uppercase; }
+.nav-logo span.sub { display: block; font-family: var(--font-mono); font-weight: 600; font-size: 0.68rem; color: var(--rust-600); letter-spacing: 0.05em; margin-top: 1px; text-transform: uppercase; }
 
 .nav-links { display: flex; align-items: center; gap: 0.35rem; }
 .nav-links a { padding: 0.5rem 0.9rem; border-radius: var(--r-pill); font-size: 0.86rem; font-weight: 600; color: var(--ink-soft); transition: background 180ms var(--ease-out), color 180ms var(--ease-out); }
@@ -373,7 +373,7 @@ h3 { font-size: 1.3rem; }
 
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-grid .hero-visual { aspect-ratio: 4 / 3; order: -1; }
+  .hero-grid .hero-visual { aspect-ratio: 4 / 3; }
 }
 
 /* ==========================================================================
@@ -468,6 +468,7 @@ h3 { font-size: 1.3rem; }
 .footer { background: var(--grad-dark); color: rgba(255, 255, 255, 0.75); padding: 5rem 0 2rem; margin-top: 2rem; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .footer-brand .nav-logo { color: #fff; }
+.footer-brand .nav-logo span.sub { color: var(--rust-400); }
 .footer-brand p { margin-top: 1rem; font-size: 0.9rem; max-width: 30ch; color: rgba(255, 255, 255, 0.5); }
 .footer-social { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
 .footer-social a { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; transition: background 200ms var(--ease-out), transform 200ms var(--ease-out); }
