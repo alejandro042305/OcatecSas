@@ -16,17 +16,17 @@
   --line: rgba(11, 18, 32, 0.09);
   --line-strong: rgba(11, 18, 32, 0.15);
 
-  --petrol-900: #061b3f;
-  --petrol-700: #0d3f95;
-  --petrol-600: #1857c9;
-  --petrol-500: #2f74e6;
-  --petrol-400: #6ea0f2;
-  --petrol-100: #e3edfd;
+  --petrol-900: #0a1f5c;
+  --petrol-700: #1447b8;
+  --petrol-600: #1a56db;
+  --petrol-500: #3b82f6;
+  --petrol-400: #7fb0fb;
+  --petrol-100: #e5eefd;
 
-  --rust-600: #c2410c;
-  --rust-500: #ea580c;
-  --rust-400: #fb923c;
-  --rust-100: #ffe9d6;
+  --rust-600: #15803d;
+  --rust-500: #1fb659;
+  --rust-400: #4ade80;
+  --rust-100: #dcfce7;
 
   --gold-500: #d97706;
 
@@ -35,7 +35,7 @@
   /* Gradients (used sparingly, always same-family hues) */
   --grad-primary: linear-gradient(135deg, var(--petrol-700), var(--petrol-400));
   --grad-amber: linear-gradient(135deg, var(--rust-600), var(--rust-400));
-  --grad-dark: linear-gradient(160deg, #0a1730, #0d3f95);
+  --grad-dark: linear-gradient(160deg, #081335, #1447b8);
 
   /* Typography */
   --font-head: 'Fraunces', 'Public Sans', serif;
@@ -290,13 +290,12 @@ h3 { font-size: 1.3rem; }
 .nav-logo { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-head); font-weight: 600; font-size: 1.08rem; letter-spacing: -0.01em; }
 
 .nav-logo-mark {
-  width: 2.1rem; height: 2.1rem;
-  border-radius: 0.65rem;
-  background: var(--grad-dark);
+  width: 2.3rem; height: 2.3rem;
+  flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  box-shadow: var(--shadow-inner-hi);
 }
+
+.nav-logo-mark svg { width: 100%; height: 100%; }
 
 .nav-logo span.sub { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 0.58rem; color: var(--ink-soft); letter-spacing: 0.04em; margin-top: -1px; text-transform: uppercase; }
 
@@ -396,7 +395,7 @@ h3 { font-size: 1.3rem; }
 .card-inner.edge-gold { border-top-color: var(--gold-500); }
 
 .card-icon { width: 3.1rem; height: 3.1rem; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; background: var(--grad-primary); color: #fff; }
-.card-icon.amber { background: var(--grad-amber); color: #2c1206; }
+.card-icon.amber { background: var(--grad-amber); color: #fff; }
 .card-icon .icon { width: 1.5rem; height: 1.5rem; }
 
 .card-link { margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; font-size: 0.86rem; color: var(--petrol-700); }
@@ -531,8 +530,8 @@ h3 { font-size: 1.3rem; }
 .map-mock {
   position: relative; aspect-ratio: 1; border-radius: var(--r-xl);
   background:
-    radial-gradient(circle at 30% 30%, rgba(39, 94, 95, 0.16), transparent 55%),
-    radial-gradient(circle at 70% 65%, rgba(193, 80, 46, 0.14), transparent 50%),
+    radial-gradient(circle at 30% 30%, rgba(26, 86, 219, 0.16), transparent 55%),
+    radial-gradient(circle at 70% 65%, rgba(21, 128, 61, 0.14), transparent 50%),
     var(--surface);
   border: 1px solid var(--line);
   overflow: hidden;
