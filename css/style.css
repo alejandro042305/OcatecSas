@@ -538,7 +538,17 @@ h3 { font-size: 1.3rem; }
   overflow: hidden;
 }
 
-@media (max-width: 900px) { .coverage-wrap { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .coverage-wrap { grid-template-columns: 1fr; }
+  .coverage-wrap .coverage-form { order: 1; }
+  .coverage-wrap .coverage-media { order: 2; }
+}
+
+/* Mobile-only trims (homepage) */
+@media (max-width: 900px) {
+  .about-photo-wrap { display: none; }
+  .cta-final-section { display: none; }
+}
 
 /* ==========================================================================
    Forms
@@ -691,12 +701,12 @@ h3 { font-size: 1.3rem; }
   margin-top: 2rem;
   padding-top: 1.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--petrol-400);
 }
 
-.footer-disclaimer svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; opacity: 0.8; }
+.footer-disclaimer svg { width: 1.1rem; height: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--petrol-400); opacity: 1; }
 
 /* ==========================================================================
    Service card badge + bullets
@@ -787,7 +797,7 @@ h3 { font-size: 1.3rem; }
 .footer-bottom-locations span:not(:last-child)::after { content: '\2014'; margin-left: 0.5rem; color: rgba(255, 255, 255, 0.25); }
 
 .footer-legal { display: flex; align-items: center; gap: 1.5rem; }
-.footer-legal a { color: var(--petrol-400); font-weight: 700; }
+.footer-legal a { color: var(--petrol-400); font-weight: 700; font-size: 1rem; }
 .footer-legal a:hover { color: #fff; }
 
 /* ==========================================================================
