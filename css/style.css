@@ -204,15 +204,17 @@ main > section + section { border-top: 1px solid var(--line); }
 
 .glow-field > * { position: relative; z-index: 1; }
 
-/* Extra green wash on the homepage hero only (desktop) — other page heroes keep the default glow */
+/* Extra green wash on all hero sections (desktop) */
 @media (min-width: 961px) {
-  .hero.glow-field::before {
+  .hero.glow-field::before,
+  .page-hero.glow-field::before {
     width: 42rem; height: 42rem; top: -14rem; right: -12rem;
     background: radial-gradient(circle, var(--rust-400), transparent 70%);
     opacity: 0.6;
   }
 
-  .hero.glow-field::after {
+  .hero.glow-field::after,
+  .page-hero.glow-field::after {
     width: 44rem; height: 44rem; bottom: -16rem; left: -14rem;
     opacity: 0.65;
   }
