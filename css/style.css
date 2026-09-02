@@ -158,13 +158,19 @@ main > section + section { border-top: 1px solid var(--line); }
   .hero { padding: 2.5rem 0 3rem; }
   .page-hero { padding: 2.5rem 0 2rem; }
 
-  /* Homepage hero: swap the placeholder photo box for a full-hero background photo */
+  /* Homepage hero: swap the placeholder photo box for a full-width background photo,
+     shown at its own aspect ratio (no cover-cropping) and with no glow/tint over it */
   .hero.glow-field {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.78) 78%, #fff), url('../img/hero-mobile.webp');
-    background-size: cover;
-    background-position: center;
+    background-image: url('../img/hero-mobile.webp');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top center;
   }
+  .hero.glow-field::before,
+  .hero.glow-field::after { display: none; }
   .hero .hero-visual { display: none; }
+  .hero h1 { text-shadow: 0 1px 3px #fff, 0 2px 14px #fff, 0 0 24px #fff; }
+  .hero .lede { color: var(--ink); font-weight: 600; text-shadow: 0 1px 4px #fff, 0 2px 18px #fff, 0 0 30px #fff; }
 
   /* Service-page diagrams: bigger stage and bigger number markers for legibility */
   .diagram-panel { padding: 1.25rem; gap: 1.1rem; }
