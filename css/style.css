@@ -157,6 +157,22 @@ main > section + section { border-top: 1px solid var(--line); }
   .section-head { margin-bottom: 2rem; }
   .hero { padding: 2.5rem 0 3rem; }
   .page-hero { padding: 2.5rem 0 2rem; }
+
+  /* Homepage hero: swap the placeholder photo box for a full-hero background photo */
+  .hero.glow-field {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('../img/hero-mobile.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero .hero-visual { display: none; }
+
+  /* Service-page diagrams: bigger stage and bigger number markers for legibility */
+  .diagram-panel { padding: 1.25rem; gap: 1.1rem; }
+  .diagram-stage { aspect-ratio: 1 / 1; }
+  .diagram-marker circle { r: 11px; }
+  .diagram-marker text { font-size: 9px; }
+  .diagram-legend li { font-size: 0.9rem; gap: 0.6rem; }
+  .diagram-legend .num { width: 1.6rem; height: 1.6rem; font-size: 0.72rem; }
 }
 
 .section-head { max-width: 640px; margin: 0 0 3rem; }
@@ -187,6 +203,14 @@ main > section + section { border-top: 1px solid var(--line); }
 }
 
 .glow-field > * { position: relative; z-index: 1; }
+
+/* Extra green wash on the homepage hero only (desktop) — other page heroes keep the default glow */
+@media (min-width: 961px) {
+  .hero.glow-field::after {
+    width: 36rem; height: 36rem; bottom: -12rem; left: -10rem;
+    opacity: 0.55;
+  }
+}
 
 /* ==========================================================================
    Typography helpers
@@ -359,7 +383,7 @@ h3 { font-size: 1.3rem; }
   .nav-links { display: none; }
   .nav-cta .btn-label { display: none; }
   .nav-cta .btn { padding: 0.4rem; }
-  .nav-burger { display: block; }
+  .nav-burger { display: none; }
 }
 
 /* ==========================================================================
