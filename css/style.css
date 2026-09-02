@@ -160,7 +160,7 @@ main > section + section { border-top: 1px solid var(--line); }
 
   /* Homepage hero: swap the placeholder photo box for a full-hero background photo */
   .hero.glow-field {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('../img/hero-mobile.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.78) 78%, #fff), url('../img/hero-mobile.webp');
     background-size: cover;
     background-position: center;
   }
