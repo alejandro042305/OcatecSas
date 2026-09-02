@@ -158,19 +158,37 @@ main > section + section { border-top: 1px solid var(--line); }
   .hero { padding: 2.5rem 0 3rem; }
   .page-hero { padding: 2.5rem 0 2rem; }
 
-  /* Homepage hero: swap the placeholder photo box for a full-width background photo,
-     shown at its own aspect ratio (no cover-cropping) and with no glow/tint over it */
+  /* Homepage hero: swap the placeholder photo box for a full-hero background photo,
+     with matching light text/buttons so copy stays readable over the image */
   .hero.glow-field {
-    background-image: url('../img/hero-mobile.webp');
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: top center;
+    background-image: linear-gradient(180deg, rgba(8, 19, 40, 0.32), rgba(8, 19, 40, 0.6) 55%, rgba(8, 19, 40, 0.72)), url('../img/hero-mobile.webp');
+    background-size: cover;
+    background-position: center top;
   }
   .hero.glow-field::before,
   .hero.glow-field::after { display: none; }
   .hero .hero-visual { display: none; }
-  .hero h1 { text-shadow: 0 1px 3px #fff, 0 2px 14px #fff, 0 0 24px #fff; }
-  .hero .lede { color: var(--ink); font-weight: 600; text-shadow: 0 1px 4px #fff, 0 2px 18px #fff, 0 0 30px #fff; }
+
+  .hero h1 { color: #fff; }
+  .hero .lede { color: rgba(255, 255, 255, 0.88); }
+
+  .hero .hero-badge {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .hero .hero-badge .icon { color: var(--rust-400); }
+
+  .hero .btn-ghost {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .hero .btn-ghost .btn-icon { background: rgba(255, 255, 255, 0.18); color: #fff; }
 
   /* Service-page diagrams: bigger stage and bigger number markers for legibility */
   .diagram-panel { padding: 1.25rem; gap: 1.1rem; }
@@ -906,11 +924,10 @@ h3 { font-size: 1.3rem; }
 }
 
 @media (max-width: 640px) {
-  .fab-stack { right: 1.1rem; gap: 0.6rem; opacity: 0; pointer-events: none; transition: opacity 220ms var(--ease-out); }
-  .fab-stack.is-visible { opacity: 1; pointer-events: auto; }
+  .fab-stack { right: 1.1rem; gap: 0.6rem; }
   .fab { width: 2.75rem; height: 2.75rem; }
   .fab .icon { width: 1.2rem; height: 1.2rem; }
-  .fab-call, .fab-top { display: none; }
+  .fab-top { display: none; }
 }
 
 /* ==========================================================================
